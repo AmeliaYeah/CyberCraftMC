@@ -1,0 +1,99 @@
+name: CyberCraft
+main: me.YayItsAmelia.Main
+version: 1.0
+api-version: 1.16
+author: YayItsAmelia
+description: Cybersecurity and Cyberwarfare in Minecraft
+
+depend: [Vault]
+softdepend: [Essentials]
+
+commands:
+ cellphone:
+  description: Access your personal cellphone
+  aliases: [cell,phone]
+  permission: cybercraft.use.cellphone
+  permission-message: You don't have permission to use your cellphone.
+  usage: "Usage: /<command>"
+ ftp:
+  description: Remotely connect to an owned file server
+  aliases: [ftp-connection,remote-ftp]
+  permission: cybercraft.use.ftp
+  permission-message: You aren't allowed to use FTP.
+  usage: "Usage: /<command> <server>"
+ freelance:
+  description: The main command pertaining to freelancing
+  permission: cybercraft.use.freelance
+  permission-message: You aren't allowed to access the freelancing manager.
+  usage: "Usage: /<command> [claim] [create-project <item> <amount> <budget> <time>]"
+  
+  
+ send-notification:
+  description: Sends a notification to a player
+  aliases: [send,notification]
+  permission: cybercraft.admin.sendNotification
+  usage: "Usage: /<command> <player> <message>"
+ give-storage:
+  description: Provides a player with an FTP server
+  permission: cybercraft.admin.storage.give
+  usage: "Usage: /<command> <player> <size>"
+ revoke-storage:
+  description: Revokes the FTP server of a player
+  permission: cybercraft.admin.storage.revoke
+  usage: "Usage: /<command> <player> <server> [reason]"
+ set-server-upgrade:
+  description: Edits and modifies a player's FTP server
+  permission: cybercraft.admin.storage.upgradeManipulation
+  usage: "Usage: /<command> <player> <server> <upgradeName> <mode>"
+
+permissions:
+ cybercraft.use.cellphone:
+  description: Allows usage of the cellphone
+  default: true
+ cybercraft.use.ftp:
+  description: Allows access to the player's file transfer servers
+  default: true
+ cybercraft.use.freelance:
+  description: Allows usage of the /freelance command
+  default: true
+  
+  
+ cybercraft.use.*:
+  description: Grants permission to all commands requiring usage of something
+  default: true
+  children:
+   cybercraft.use.cellphone: true
+   cybercraft.use.ftp: true
+   cybercraft.use.freelance: true
+   
+   
+ cybercraft.admin.sendNotification:
+  description: Allows the user to send notifications to players
+  default: op
+ cybercraft.admin.storage.give:
+  description: Allows the user to give FTP servers to players
+  default: op
+ cybercraft.admin.storage.revoke:
+  description: Allows the user to revoke the FTP servers of players
+  default: op
+ cybercraft.admin.storage.upgradeManipulation:
+  description: Allows the user to manipulate the upgrades of a player(s) FTP server
+  default: op
+ 
+ 
+ cybercraft.admin.storage.*:
+   description: Grants permission to all admin commands pertaining to FTP storage
+   default: op
+   children:
+    cybercraft.admin.storage.give: true
+    cybercraft.admin.storage.revoke: true
+    cybercraft.admin.storage.upgradeManipulation: true
+  
+  
+ cybercraft.admin:
+  description: Grants permission to every single command
+  default: op
+  children:
+   cybercraft.use.*: true
+   cybercraft.admin.sendNotification: true
+   cybercraft.admin.storage.*: true

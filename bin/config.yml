@@ -1,0 +1,146 @@
+#Cybercraft Config
+#By: YayItsAmelia
+#I hope you like the plugin <3
+
+#Please make sure to use common sense. Most numbers, unless stated otherwise, are meant to be positive-only.
+#Changing the data type of a setting is also prohibited, such as changing booleans (true/false) to strings (words).
+#The ONLY exception to the above rule is changing double values (decimals) to integer values (whole numbers)
+#Disobeying any of these could potentially result in the plugin breaking and not working. Just don't do it.
+
+#It's also recommended to surround string values (words) with either single quotes or double quotes.
+#It's okay to not surround them with anything, but it is recommended for aesthetic and potentially technical reasons.
+
+#Guide to all allowed data types:
+#   1. STRING: This allows for practically anything to be inputted into it. Words, single characters, numbers, etc.
+#   2. BOOLEAN: This allows for ONLY "true" and "false" to be inputted. "True" means "yes", "false" means "no".
+#   3: DOUBLE: This allows for any NUMBER to be inputted (but ONLY a number)
+#   4: INTEGER: This is the same to a double, but you cannot use decimals.
+
+############################################################
+##                    CELLPHONE                           ##
+############################################################
+
+#Should the user have to pay a fee before having access to a cellphone? (Set to -1 to make the phone free)
+#This is in DOUBLE format, so you can have numbers such as 2.0, 3.1, 4.6, etc. JUST MAKE SURE IT'S A VALID NUMBER!
+phoneCost: 60
+
+#Determines if notifications should be sent even if the player doesn't currently own a phone
+#Setting this to true will result in the notifications being lost if they don't own one
+notificationsRequirePhone: false
+
+#Displays the message the player gets when they first register for a phone
+#The resulting message will be like this:
+#
+#Greetings, [player name]!
+#[your message goes here]
+#Thank you for your purchase
+#
+registerPhoneMessage: "CyberCraft is a fantastic plugin!"
+
+
+#############################################################
+##                     HACKING                             ##
+#############################################################
+
+#You wouldn't be that evil, would you?
+disableHacking: false
+
+#Determines if players are able to hack eachother
+#NPC hacking will still be enabled, but player versus player hacking will not
+#It is recommended to keep this to true (on) for a more interactive and immersive experience
+pvp: true
+
+#Determines if NPCs are able to hack players
+canNpcsHack: true
+
+#This is a list containing all the items/blocks you want to be accounted for in random loot generation
+#These have to be in a specific format (see https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html as reference)
+#The general rule of thumb is to replace spaces with "_" characters and just use conventional common sense regarding the actual name of the word
+#Capitalization IS recommended for aesthetical reasons, but there is no need to worry about that as the program will handle it for you
+#There is also a second INTEGER value. This is the rarity, and it's a percentage between 0 and 100. The closer to 100, the more common it is
+acceptedLootItems:
+  Dirt: 90
+  Gold_Ingot: 40
+  Iron_Ingot: 55
+  Diamond: 10
+  String: 80
+  Oak_Planks: 87
+  Coal: 75
+  None: 50 #This is important and it pertains to the chance that the inventory slot remains empty. Removing this would make a default value of 50.
+
+
+#############################################################
+##                   SERVERS (FTP)                         ##
+#############################################################
+
+#Determines how much FTP servers someone can have
+#This is in INTEGER format, meaning you cannot have decimal places.
+ftpServerCount: 10
+
+#Details the cost for each FTP server size
+#This is in DOUBLE format
+ftpServerCost:
+  small: 1300
+  medium: 2700
+  large: 5600
+  
+#Details the cost for each FTP server upgrade
+#This is in DOUBLE format, and to disable the ability to use an upgrade, set it's cost to -1
+ftpUpgradesCost:
+  disk_encryption: 9600
+ 
+
+#############################################################
+##                     FREELANCING                         ##
+#############################################################
+
+#Disables the ability to use the freelancing site (In conjunction with the features/commands it provides)
+disableFreelancing: false
+
+#Choose the freelancing categories that should be disabled
+#True (default) means they are enabled. False means they are disabled.
+freelancingCategoriesEnabled:
+  obtaining: true
+  hacking: true #For this specific option, if "hackingDisabled" is set to false, this will also be set to false no matter the option chosen
+  
+#The maximum amount of freelancing tasks someone can have at a time
+#This is in INTEGER format
+freelancingMaxAmount: 4
+
+#The maximum amount of freelancing projects someone can create at a time
+#This is in INTEGER format
+freelancingMaxOwnedProjectsAmount: 2
+
+#This is the percentage for how much money is lost when a freelance project gets refunded
+#This is in DOUBLE format
+freelancingPenaltyPercentage: 20
+
+#These are the mininum and maximum values for the budget
+#The minimum value is also applied to the bids
+#These are in INTEGER format
+freelancingMinBudget: 50
+freelancingMaxBudget: 10000
+
+#These are the minimum and maximum values for the amount of HOURS a project can be set to last
+#These are in INTEGER format
+freelancingMinHours: 2
+freelancingMaxHours: 168
+
+#These are the minimum and maximum values regarding how often a new freelance project will be randomly generated by the AI
+#These are MINUTES and are in INTEGER format
+freelancingRandomGenerationFrequencyMin: 2
+freelancingRandomGenerationFrequencyMax: 40
+
+  
+#############################################################
+##                       ADMIN                             ##
+#############################################################
+
+#Whenever admins on player accounts run admin commands (from this plugin) directed at other players, it will sometimes send a notification to that player.
+#This notification, like all notifications, contains information about the sender.
+#Normally, with this setting turned to false, it will display the sender as the command executor's player name.
+#If this is set to true, it will instead display them anonymously as "Server"
+#This only matters if the command is run from a player account. Consoles and command blocks will still display as "Server" regardless.
+adminCommandNotificationAnonymous: false
+
+
